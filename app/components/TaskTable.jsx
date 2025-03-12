@@ -1,9 +1,6 @@
 import Table from "react-bootstrap/Table";
-
-import { PrismaClient } from "@prisma/client";
+import prisma from "../lib/prisma"; //
 import AddTask from "../components/AddTask";
-
-const prisma = new PrismaClient();
 
 const getEmployee = async () => {
   const res = await prisma.employee.findMany();
