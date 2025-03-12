@@ -40,7 +40,7 @@ const AddTask = ({ employees }) => {
   };
 
   return (
-    <>
+    <div className="text-center mb-6">
       <Button variant="primary" onClick={handleShow}>
         Add New Task
       </Button>
@@ -91,7 +91,7 @@ const AddTask = ({ employees }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 };
 

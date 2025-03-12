@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased mx-20 my-10`}
       >
-        <div>{children}</div>
+        <div className="mb-8">{children}</div>
         <div>
           <TaskTable />
         </div>
