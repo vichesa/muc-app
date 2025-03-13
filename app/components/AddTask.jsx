@@ -50,12 +50,13 @@ const AddTask = ({ employees }) => {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Task Name</Form.Label>
               <Form.Control
                 type="text"
                 autoFocus
+                required
                 onChange={(e) => setTaskName(e.target.value)}
               />
             </Form.Group>
@@ -63,6 +64,7 @@ const AddTask = ({ employees }) => {
               <Form.Label>Due Date</Form.Label>
               <Form.Control
                 type="date"
+                required
                 onChange={(e) => setDueDate(e.target.value)}
               />
             </Form.Group>
@@ -70,6 +72,7 @@ const AddTask = ({ employees }) => {
               <Form.Label>Assign to</Form.Label>
               <Form.Select
                 aria-label="Default select example"
+                required
                 onChange={(e) => setEmpId(e.target.value)}
               >
                 <option>Select employee</option>
@@ -80,16 +83,16 @@ const AddTask = ({ employees }) => {
                 ))}
               </Form.Select>
             </Form.Group>
+            <div className="mt-8 flex gap-2 justify-right">
+              <Button variant="primary" type="submit">
+                Save Changes
+              </Button>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+            </div>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleSubmit}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );
