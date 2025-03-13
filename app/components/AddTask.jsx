@@ -21,18 +21,20 @@ const AddTask = ({ employees }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/api/task", {
-        taskName: taskName,
-        dueDate: new Date(dueDate).toISOString(), // Convert to ISO string
-        employeeId: Number(empId),
-      });
-      console.log();
-
-      router.refresh();
-      setTaskName("");
-      setDueDate("");
-      setEmpId();
-      setShow(false);
+      if (!taskName || !dueDate || !empId) {
+        alert("Please fill all fields");
+      } else {
+        await axios.post("/api/task", {
+          taskName: taskName,
+          dueDate: new Date(dueDate).toISOString(), // Convert to ISO string
+          employeeId: Number(empId),
+        });
+        router.refresh();
+        setTaskName("");
+        setDueDate("");
+        setEmpId();
+        setShow(false);
+      }
     } catch (error) {
       console.error("Error posting task:", error);
       setShow(false);
@@ -41,13 +43,13 @@ const AddTask = ({ employees }) => {
 
   return (
     <div className="text-center mb-6">
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="success" onClick={handleShow}>
         Add New Task
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Add New Task</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
@@ -83,12 +85,12 @@ const AddTask = ({ employees }) => {
                 ))}
               </Form.Select>
             </Form.Group>
-            <div className="mt-8 flex gap-2 justify-right">
-              <Button variant="primary" type="submit">
-                Save Changes
+            <div className="mt-12 mb-6 flex gap-2 justify-end">
+              <Button variant="danger" onClick={handleClose}>
+                Cancel
               </Button>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
+              <Button variant="primary" type="submit">
+                Save
               </Button>
             </div>
           </Form>

@@ -30,7 +30,7 @@ const TaskTable = async () => {
         <thead>
           <tr>
             <th>No</th>
-            <th>Nama Karyawan</th>
+            <th>Employee Name</th>
             <th>Task Name</th>
             <th>Due Date</th>
           </tr>
