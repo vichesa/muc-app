@@ -43,10 +43,11 @@ const AddTask = ({ employees }) => {
 
   return (
     <div className="text-center mb-6">
-      <Button variant="success" onClick={handleShow}>
+      {/* <div className="text-right"> */}
+      <Button variant="success" onClick={handleShow} className="w-40">
         Add New Task
       </Button>
-
+      {/* </div> */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add New Task</Modal.Title>
