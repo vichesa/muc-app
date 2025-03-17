@@ -8,7 +8,7 @@ const tabs = [
     link: "/",
   },
   {
-    name: "Project Card",
+    name: "Progress Card",
     link: "/projectcard",
   },
 ];
