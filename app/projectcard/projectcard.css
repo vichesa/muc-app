@@ -1,0 +1,20 @@
+.btn-card {
+  background-color: aqua;
+  width: 60px;
+  font-size: 12px;
+  border-radius: 20%;
+}
+
+.btn-card-rjc {
+  background-color: red;
+}
+
+.prog-card {
+  max-width: 100%; /* Ensure it does not exceed parent width */
+  height: 80vh;
+  background-color: black; /* bg-blue-400 */
+  border-radius: 1rem; /* rounded-md */
+  position: relative; /* Change to relative for proper layout */
+  overflow: auto; /* Handle overflow */
+  margin: 0 auto; /* Center the card */
+}

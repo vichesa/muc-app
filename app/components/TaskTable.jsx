@@ -26,7 +26,7 @@ const TaskTable = async () => {
   return (
     <>
       <AddTask employees={employees} />
-      <Table table-responsive striped>
+      <Table table-responsive striped bordered variant="dark">
         <thead class="table-dark">
           <tr>
             <th>No</th>
