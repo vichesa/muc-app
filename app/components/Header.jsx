@@ -9,7 +9,7 @@ const tabs = [
   },
   {
     name: "Progress Card",
-    link: "/projectcard",
+    link: "/progresscard",
   },
 ];
 
