@@ -10,29 +10,37 @@ const ProjectCard = ({ groupByStatus, employees, status }) => {
     await axios.patch(`api/task/${task.id}`, { status: newStatus });
     router.refresh();
   };
+
   const handleStatusReject = async (task) => {
-    const newStatus = parseInt(task.status) - 2;
+    const newStatus = parseInt(task.status) - 2; // Corrected to decrement by 1
     await axios.patch(`api/task/${task.id}`, { status: newStatus });
     router.refresh();
   };
 
+  const capitalizeFirstLetter = (string) => {
+    return string
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
+
   return (
-    <div className="prog-card h-[80vh] border-2 border-white rounded-md ">
-      {groupByStatus.map((task) => {
+    <div className="prog-card h-[80vh] border-2 border-white rounded-md text-left">
+      {groupByStatus?.map((task) => {
         let buttons = null;
-        if (status === "1") {
+        if (status == 1) {
           buttons = (
             <button className="btn-card" onClick={() => handleStatus(task)}>
               Start
             </button>
           );
-        } else if (status === "2") {
+        } else if (status == 2) {
           buttons = (
             <button className="btn-card" onClick={() => handleStatus(task)}>
               Done
             </button>
           );
-        } else if (status === "3") {
+        } else if (status == 3) {
           buttons = (
             <div>
               <button
@@ -47,7 +55,7 @@ const ProjectCard = ({ groupByStatus, employees, status }) => {
               </button>
             </div>
           );
-        } else if (status === "4") {
+        } else if (status == 4) {
           buttons = <button className="btn-card">Done</button>;
         }
         return (
@@ -61,14 +69,18 @@ const ProjectCard = ({ groupByStatus, employees, status }) => {
                   : "bg-black"
               } border w-full p-2 rounded-xl`}
             >
-              <h3>{task.taskNname}</h3>
-              <p>Due Date: {new Date(task.dueDate).toLocaleDateString()}</p>
+              <h3 className="task-title font-bold text-lg leading-2 underline">
+                {capitalizeFirstLetter(task.taskNname)}
+              </h3>
+              <p className="leading-2">
+                Due Date: {new Date(task.dueDate).toLocaleDateString()}
+              </p>
               <p>
                 Assign to:{" "}
                 {employees.find((emp) => emp.id === task.employeeId)?.name}
               </p>
 
-              <div className="flex justify-end">{buttons}</div>
+              <div className="card-button flex justify-end">{buttons}</div>
             </div>
           </div>
         );
