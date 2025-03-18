@@ -33,6 +33,7 @@ const TaskTable = async () => {
             <th>Employee Name</th>
             <th>Task Name</th>
             <th>Due Date</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -53,6 +54,23 @@ const TaskTable = async () => {
                   .map((t, index) => (
                     <div key={index}>{formatDate(t.dueDate)}</div>
                   ))}
+              </td>
+              <td>
+                {tasks
+                  .filter((task) => task.employeeId === e.id)
+                  .map((t, index) => {
+                    let stat = null;
+                    if (t.status === 1) {
+                      stat = <div>Todo</div>;
+                    } else if (t.status === 2) {
+                      stat = <div>Doing</div>;
+                    } else if (t.status === 3) {
+                      stat = <div>Testing</div>;
+                    } else {
+                      stat = <div>Production</div>;
+                    }
+                    return <div key={index}>{stat}</div>;
+                  })}
               </td>
             </tr>
           ))}

@@ -28,6 +28,7 @@ const AddTask = ({ employees }) => {
           taskName: taskName,
           dueDate: new Date(dueDate).toISOString(), // Convert to ISO string
           employeeId: Number(empId),
+          status: 1,
         });
         router.refresh();
         setTaskName("");
@@ -48,7 +49,7 @@ const AddTask = ({ employees }) => {
         Add New Task
       </Button>
       {/* </div> */}
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} className="text-black">
         <Modal.Header closeButton>
           <Modal.Title>Add New Task</Modal.Title>
         </Modal.Header>

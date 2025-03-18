@@ -26,4 +26,5 @@ model Task {
   dueDate DateTime
   employee Employee @relation(fields: [employeeId], references: [id])
   employeeId Int
+  status Int // New field added
 }

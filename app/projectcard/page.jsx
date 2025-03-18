@@ -114,7 +114,12 @@ const ProjectCard = () => {
               } else if (status === "Testing") {
                 buttons = (
                   <div>
-                    <button className="btn-card mr-2">Reject</button>
+                    <button
+                      className="btn-card mr-2"
+                      style={{ backgroundColor: "red" }}
+                    >
+                      Reject
+                    </button>
                     <button className="btn-card">Accept</button>
                   </div>
                 );

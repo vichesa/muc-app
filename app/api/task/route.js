@@ -36,6 +36,7 @@ export const POST = async (req) => {
         taskNname: body.taskName,
         dueDate: new Date(body.dueDate), // Convert to Date object
         employeeId: employeeId,
+        status: body.status,
       },
     });
 
