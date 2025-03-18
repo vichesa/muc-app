@@ -66,7 +66,7 @@ const TaskTable = async () => {
                       stat = <div>Doing</div>;
                     } else if (t.status === 3) {
                       stat = <div>Testing</div>;
-                    } else {
+                    } else if (t.status === 4) {
                       stat = <div>Production</div>;
                     }
                     return <div key={index}>{stat}</div>;
